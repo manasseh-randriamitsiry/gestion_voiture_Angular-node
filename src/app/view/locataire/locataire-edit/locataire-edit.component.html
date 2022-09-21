@@ -1,0 +1,30 @@
+<div class="container" style="margin-top: 7%">
+  <form [formGroup]="locataireForm" (ngSubmit)="onSubmitEdit(data)" #data="ngForm" >
+    <div style="background-color: rgba(239,239,241,0.09); padding: 2%;border-radius: 10px;width:50% ;margin: auto; box-shadow: #c7c3c3 1px 0px 15px 1px">
+      <div class="card-header mt-5 mx-5">
+        <h3 class="modal-title">Editer locataire</h3>
+      </div>
+      <div class="">
+        <div class="inputBox">
+          <input formControlName="n_locataire"  [(ngModel)]="locataire.n_locataire"  type="text" placeholder="numero locataire" required="required">
+          <span>Numero locataire</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <input formControlName="nom" [(ngModel)]="locataire.nom" type="text" placeholder="nom Locataire" required="required">
+          <span>Nom locataire</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <input formControlName="adresse" [(ngModel)]="locataire.adresse" type="text" placeholder="Adresse locataire" required="required">
+          <span>Adresse Locataire</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <a type="button" class="btn btn-danger light mx-2" routerLink="/locataire">Cancel</a>
+          <button type="submit" class="btn btn-primary" [disabled] ="!locataireForm.valid">Ajouter</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

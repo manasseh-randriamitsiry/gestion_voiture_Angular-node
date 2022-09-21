@@ -1,0 +1,90 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+    <fa-icon  [icon]="faCar" class="fa-10x"></fa-icon>
+    <h1 class="name">GV</h1>
+    <h4 class="designation">Gestion Voiture</h4>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button mt-2" routerLink="/home">
+      <fa-icon [icon]="faHome">home</fa-icon>
+      <span>Home</span>
+    </button>
+    <button mat-button class="menu-button mt-2" routerLink="/locataire">
+      <fa-icon [icon]="faPerson">person</fa-icon>
+      <span>locataire</span>
+    </button>
+    <button mat-button class="menu-button mt-2" routerLink="/voiture">
+      <fa-icon [icon]="faCarSimple"></fa-icon>
+      <span>Voiture</span>
+    </button>
+
+    <button mat-button class="menu-button mt-2" routerLink="/location">
+      <fa-icon [icon]="location"></fa-icon>
+      <span>Location</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" routerLink="/help">
+      <mat-icon>help</mat-icon>
+      <span>Help</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!--Main Navigation-->
+    <header>
+      <!-- Sidebar -->
+      <nav id="sidebarMenu" class="collapse d-lg-block sidebar bg-white collapse">
+        <div class="position-sticky">
+          <div class="list-group list-group-flush mx-3 mt-5">
+            <app-header></app-header>
+          </div>
+        </div>
+      </nav>
+      <!-- Sidebar -->
+
+      <!-- Navbar -->
+      <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+          <fa-icon
+            [icon]="faBars"
+            *ngIf="sidenav.mode === 'over'"
+            (click)="sidenav.toggle()"
+          >
+            <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+            <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+          </fa-icon>
+          <h2 class="mt-3 mx-5" style="position: fixed">Gestion Voiture</h2>
+          <!-- Right links -->
+          <ul class="navbar-nav ms-auto d-flex flex-row">
+            <li class="nav-item">
+              <form class="d-none d-md-flex input-group w-auto my-auto">
+                <input
+                  onkeyup="myFunction()"
+                  type="text"
+                  id="myInput"
+                  name="recherche"
+                  class="form-control"
+                  placeholder='Rechercher (sur table)'
+                  style="min-width: 225px;"
+                />
+                <span class="input-group-text border-0 m-1"><fa-icon [icon]="faSearch"></fa-icon></span>
+              </form>
+            </li>
+
+          </ul>
+        </div>
+        <!-- Container wrapper -->
+      </nav>
+      <!-- Navbar -->
+    </header>
+    <main style="margin-top: 10%">
+        <router-outlet></router-outlet>
+    </main>
+    <!--Main layout-->
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

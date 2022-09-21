@@ -1,0 +1,43 @@
+<div style="background-color: rgba(239,239,241,0.09); padding: 2%;border-radius: 10px;width:80% ;margin: 10%;margin-top: 5%; box-shadow: #c7c3c3 1px 0px 15px 1px">
+  <div class="container-fluid mt-2 mb-5">
+    <!-- row -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="card-title" style="color: #151414">Tableau Location</h1>
+        <a class="btn btn-rounded mb-2" routerLink="add" style="background-color: #3f3ad9; color: #000000;"><span
+          class="btn-icon-left text-info"><i  class="fa fa-plus " style="color: #2495b6;"></i></span>Ajouter
+        </a>
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-responsive-md" id="myTable">
+                <thead>
+                <tr>
+                  <th><strong>NºLocataire</strong></th>
+                  <th><strong>NºVoiture</strong></th>
+                  <th><strong>Nb jour</strong></th>
+                  <th><strong>Date Location</strong></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let location of listLocation">
+                  <td>{{location.n_locataire}}</td>
+                  <td>{{location.n_voiture}}</td>
+                  <td>{{location.nb_jour}}</td>
+                  <td>{{location.date_location |  date: 'dd-MM-yyyy'}}</td>
+                  <td>
+                    <div class="d-flex">
+                      <a routerLink="{{location.id}}" class="btn btn-primary"><fa-icon [icon]="editIcon"></fa-icon></a>
+                      <button (click)="delete(location)"  class="btn btn-danger shadow btn-xs sharp mx-2"><fa-icon [icon]="deleteIcon"></fa-icon></button>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

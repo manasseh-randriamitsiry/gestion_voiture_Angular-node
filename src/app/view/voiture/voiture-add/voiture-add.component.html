@@ -1,0 +1,30 @@
+<div class="container" style="margin-top: 7%">
+  <form [formGroup]="voitureForm" (ngSubmit)="onSubmitPost(data)" #data="ngForm" >
+    <div style="background-color: rgba(239,239,241,0.09); padding: 2%;border-radius: 10px;width:50% ;margin: auto; box-shadow: #c7c3c3 1px 0px 15px 1px">
+      <div class="card-header mt-5 mx-5">
+        <h3 class="modal-title">Ajout voiture</h3>
+      </div>
+      <div class="">
+        <div class="inputBox">
+          <input formControlName="n_voiture"  [(ngModel)]="voiture.n_voiture"  type="text" placeholder="numero voiture" required="required">
+          <span>Numero voiture</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <input formControlName="designation" [(ngModel)]="voiture.designation" type="text" placeholder="designation" required="required">
+          <span>Designation</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <input formControlName="l_journalier" [(ngModel)]="voiture.l_journalier" type="text" placeholder="loyer journalier" required="required">
+          <span>Loyer Journalier: Number</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <a type="button" class="btn btn-danger light mx-2" routerLink="/voiture">Cancel</a>
+          <button type="submit" class="btn btn-primary" [disabled] ="!voitureForm.valid">Ajouter</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

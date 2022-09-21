@@ -1,0 +1,35 @@
+<div class="container" style="margin-top: 7%">
+  <form [formGroup]="locationForm" (ngSubmit)="onSubmitEdit(data)" #data="ngForm" >
+    <div style="background-color: rgba(239,239,241,0.09); padding: 2%;border-radius: 10px;width:50% ;margin: auto; box-shadow: #c7c3c3 1px 0px 15px 1px">
+      <div class="card-header mt-5 mx-5">
+        <h3 class="modal-title">Ajout locataire</h3>
+      </div>
+      <div class="">
+        <div class="inputBox">
+          <input formControlName="n_locataire"  [(ngModel)]="location.n_locataire"  type="text" placeholder="numero locataire" required="required">
+          <span>Numero locataire</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <input formControlName="n_voiture" [(ngModel)]="location.n_voiture" type="text" placeholder="numero voiture" required="required">
+          <span>Numero voiture</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <input formControlName="nb_jour" [(ngModel)]="location.nb_jour" type="number" placeholder="Nombre de jour" required="required">
+          <span>Nombre de jour</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <input formControlName="date_location" [(ngModel)]="location.date_location" type="date" placeholder="Date location" required="required">
+          <span>Date Location</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <a type="button" class="btn btn-danger light mx-2" routerLink="/location">Cancel</a>
+          <button type="submit" class="btn btn-primary" [disabled] ="!locationForm.valid">Ajouter</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Gestion-voiture-A</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="mat-typography">
+  <app-root></app-root>
+  <script>
+    function myFunction() {
+      let input, filter, table, tr, td, i, textValue,j;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+          if (td[j]) {
+            textValue = td[j].textContent || td[j].innerText;
+            textValue = textValue.toUpperCase();
+            if (textValue.indexOf(filter) > -1) {
+              tr[i].style.display = ""; // show
+              break;
+            } else {
+              tr[i].style.display = "none"; // hide
+            }
+          }
+        }
+      }
+    }
+
+
+  </script>
+</body>
+</html>
